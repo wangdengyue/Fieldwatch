@@ -41,6 +41,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.outlined.CellTower
 import androidx.compose.material.icons.outlined.FilterAlt
+import androidx.compose.material.icons.outlined.History
 import androidx.compose.material.icons.outlined.ExpandLess
 import androidx.compose.material.icons.outlined.ExpandMore
 import androidx.compose.material.icons.outlined.Pause
@@ -128,6 +129,7 @@ import app.fieldwatch.ui.screen.LivePane
 import app.fieldwatch.ui.screen.CandidatesScreen
 import app.fieldwatch.ui.screen.RadioBookmarksScreen
 import app.fieldwatch.ui.screen.ReportsScreen
+import app.fieldwatch.ui.history.HistoryScreen
 import app.fieldwatch.ui.screen.ScanStatusScreen
 import app.fieldwatch.ui.screen.SettingsScreen
 import app.fieldwatch.ui.theme.FieldwatchTheme
@@ -586,6 +588,13 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
                             label = "Reports",
                         )
                         FieldwatchNavTab(
+                            weight = 1f,
+                            selected = route == "history",
+                            onClick = { nav.navigate("history") { launchSingleTop = true } },
+                            icon = { Icon(Icons.Outlined.History, null) },
+                            label = "History",
+                        )
+                        FieldwatchNavTab(
                             weight = 1.05f,
                             selected = route == "settings" || route == "radio-bookmarks" || route == "scan-status",
                             onBounds = { tourTargets = tourTargets.copy(settings = it) },
@@ -705,6 +714,9 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
                         nav.navigate("fleets")
                     },
                 )
+            }
+            composable("history") {
+                HistoryScreen(app = vm.fieldwatchApp)
             }
             composable("settings") {
                 SettingsScreen(

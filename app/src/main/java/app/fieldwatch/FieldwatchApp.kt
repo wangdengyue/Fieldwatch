@@ -8,6 +8,7 @@ import android.location.LocationManager
 import android.os.Looper
 import androidx.core.content.ContextCompat
 import app.fieldwatch.alert.Alerter
+import app.fieldwatch.analysis.AnalysisEngine
 import app.fieldwatch.radio.GnssMonitor
 import app.fieldwatch.data.ConfigStore
 import app.fieldwatch.data.DeviceStore
@@ -56,6 +57,8 @@ class FieldwatchApp : Application() {
         private set
     lateinit var gnssProfile: GnssProfileStore
         private set
+    lateinit var analysis: AnalysisEngine
+        private set
 
     /** Bluetooth bursts, Wi-Fi bursts, or both in time order. */
     fun floodBursts(): List<FloodBurst> {
@@ -100,6 +103,7 @@ class FieldwatchApp : Application() {
         tak = TakPublisher()
         gnssProfile = GnssProfileStore(this)
         gnss = GnssMonitor(this)
+        analysis = AnalysisEngine(this, scope)
         runBlocking {
             config.load()
             if (gnssProfile.profile.value == null && config.settings.gnssMonitor) {
@@ -111,6 +115,7 @@ class FieldwatchApp : Application() {
                 config.settings.loggingEnabled,
             )
             sits.load()
+            analysis.enabled = config.settings.analysisEnabled
             val sitOpen = sits.ui.value.open != null
             pairingFlood.setSitOpen(sitOpen)
             wifiFlood.setSitOpen(sitOpen)

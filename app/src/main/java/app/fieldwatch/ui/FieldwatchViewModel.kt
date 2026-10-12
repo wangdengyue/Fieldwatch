@@ -164,6 +164,7 @@ data class FieldwatchUi(
 
 class FieldwatchViewModel(application: Application) : AndroidViewModel(application) {
     private val app = application as FieldwatchApp
+    val fieldwatchApp: FieldwatchApp get() = app
     private val filters = FilterEngine()
     private val signatures = SignatureEngine()
     private val selectedKey = MutableStateFlow<String?>(null)

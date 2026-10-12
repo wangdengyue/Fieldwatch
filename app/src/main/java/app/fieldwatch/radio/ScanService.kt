@@ -194,6 +194,8 @@ class ScanService : LifecycleService() {
                 }
                 app.sits.noteFloods(app.pairingFlood.bursts())
                 app.sits.ingest(seen, fleets, app.config.watchlist)
+                app.analysis.enabled = settings.analysisEnabled
+                app.analysis.ingest(seen, fleets)
                 if (settings.loggingEnabled) {
                     val toLog = seen.filter { it.hitCount <= 1 || it.hitCount % 25 == 0 }.take(16)
                     for (row in toLog) {

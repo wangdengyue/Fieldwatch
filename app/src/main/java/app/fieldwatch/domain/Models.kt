@@ -607,6 +607,10 @@ data class AppSettings(
      * a decoded value that changed. Full rosters return when this is on.
      */
     val debriefShowAllRadios: Boolean = false,
+    /** Analysis layer master switch (history, baseline, MAC merge). Default on. */
+    val analysisEnabled: Boolean = true,
+    /** Days of presence history to keep before pruning. */
+    val analysisRetainDays: Int = 30,
     /**
      * Ask for Wi-Fi AP scans faster than the stock ~30 s cadence.
      * Only takes effect while Android Wi-Fi scan throttling is off
