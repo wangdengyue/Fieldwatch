@@ -1,0 +1,1920 @@
+{
+  "format": "fieldwatch-signatures",
+  "formatVersion": 1,
+  "exportedAt": "",
+  "appVersion": "community-rfsentinel",
+  "catalogVersion": 0,
+  "fleets": [
+    {
+      "id": "fleet-ps-3si-gps-bait-tracker",
+      "name": "3SI GPS bait tracker",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "F8:B5:68:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "3SI GPS bait tracker (police / bank sting). OUI source: IEEE MA-M registry (3SI Security Systems); covert GPS trackers hidden in bait property and cash, used by 10,000+ police . Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-adaptive-recognition",
+      "name": "Adaptive Recognition",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:1D:4D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Adaptive Recognition (plate-reader camera). OUI source: IEEE MA-L registry (Adaptive Recognition Hungary); maker of ANPR/ALPR cameras and engines. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-airbus-defence-and-space",
+      "name": "Airbus Defence and Space",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:23:B9",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Airbus Defence and Space (TETRA / TETRAPOL radios). OUI source: IEEE MA-L registry (Airbus Defence and Space Deutschland GmbH); public-safety radio maker. Weak: also defence equipment. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-airbus-secure-land-communications",
+      "name": "Airbus Secure Land Communications",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "C4:7C:8D:9",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Airbus Secure Land Communications (TETRA police radios). OUI source: IEEE MA-M registry (Airbus DS - SLC); TETRA radio networks and terminals for police. Match all 28 bits. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-airbus-tetra-radio",
+      "name": "Airbus TETRA radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "28:FD:80:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Airbus TETRA radio (Finland). OUI source: IEEE MA-M registry (Airbus Defence and Space Oy); TETRA terminals and networks for police. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-amesys-interception-equipment",
+      "name": "Amesys interception equipment",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:0D:1C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Amesys interception equipment. OUI source: IEEE registry (Amesys Defense, France); lawful-interception systems. Mostly fixed installations. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-applied-concepts-stalker-police-speed-ra",
+      "name": "Applied Concepts Stalker police speed radar",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "1C:82:59:D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Applied Concepts Stalker police speed radar. OUI source: IEEE MA-M registry (Applied Concepts, Inc., maker of Stalker police radar and lidar). Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-brother-industries",
+      "name": "Brother Industries",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:1B:A9",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:80:77",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "30:05:5C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "3C:2A:F4",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "94:DD:F8",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "B0:7C:8E",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "B4:22:00",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Brother Industries (RuggedJet / PocketJet in-car printers). OUI source: IEEE MA-L (Brother industries, LTD.); Brother mobile printers are sold for in-car reports and tickets. Very weak: Brothe. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-cellebrite",
+      "name": "Cellebrite",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:16:00",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Cellebrite (phone forensic extraction device). OUI source: IEEE MA-L registry (CelleBrite Mobile Synchronization); maker of phone extraction kits used by police. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-damm-tetra-radio-infrastructure",
+      "name": "Damm TETRA radio infrastructure",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:0F:E3",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Damm TETRA radio infrastructure. OUI source: IEEE registry (Damm Cellular Systems); TETRA base stations for public-safety networks. Mostly fixed sites. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-daniels-electronics-codan-p25-radio",
+      "name": "Daniels Electronics / Codan P25 radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:14:91",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Daniels Electronics / Codan P25 radio. OUI source: IEEE registry; Canadian P25 radio infrastructure and repeaters for public safety. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-decatur-electronics-police-speed-radar",
+      "name": "Decatur Electronics police speed radar",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "6C:18:11",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Decatur Electronics police speed radar. OUI source: IEEE registry (Decatur Electronics); police speed radar guns and in-car radar. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-digiboard",
+      "name": "DigiBoard",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:40:9D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "DigiBoard (Digi) fleet telematics gateway. OUI source: IEEE MA-L (DigiBoard); listed by MaxwellDPS/Flock-You-Android. Common chip/module maker: a clue, not proof. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-domo-tactical-covert-video-mesh-radio",
+      "name": "Domo Tactical covert video / mesh radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "98:49:9F",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Domo Tactical covert video / mesh radio. OUI source: IEEE registry (Domo Tactical Communications); body-worn and covert COFDM video for police and military. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-e-f-johnson-p25-police-radio",
+      "name": "E.F. Johnson P25 police radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:08:B8",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "E.F. Johnson P25 police radio. OUI source: IEEE registry (E.F. Johnson); P25 portable and mobile radios for public safety. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-espressif-module-seen-on-flock-cameras",
+      "name": "Espressif module seen on Flock cameras",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "3C:71:BF",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "A4:CF:12",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Espressif module seen on Flock cameras (community list). OUI source: IEEE MA-L (Espressif Inc.); listed by colonelpanichacks/flock-you (list by @NitekryDPaul, DeFlockJoplin); colonelpanicha. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-federal-signal-police-lightbar-siren-con",
+      "name": "Federal Signal police lightbar / siren controller",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "08:3C:03:0",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Federal Signal police lightbar / siren controller. OUI source: IEEE MA-M registry (Federal Signal Safety and Security Group); emergency-vehicle lighting and sirens. Also industrial si. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-fusus-real-time-crime-center-hub",
+      "name": "Fusus real-time crime center hub",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "7C:83:34:4",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "84:B3:86:5",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Fusus real-time crime center hub (Axon). OUI source: IEEE MA-M registry (Fusus); FususCORE hubs stream business and city cameras to police real-time crime centers. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-gamber-johnson-vehicle-computer-mount-do",
+      "name": "Gamber Johnson vehicle computer mount / dock",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:84:F",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:A7:2",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:D9:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "68:DA:73:B",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:17:8",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:DB:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:E3:4",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "8C:1F:64:04:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "8C:1F:64:42:B",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "8C:1F:64:CB:5",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Gamber Johnson vehicle computer mount / dock. OUI source: IEEE registry (Gamber-Johnson); police and fleet vehicle computer mounts and docks. Weak: also forklifts and fleets. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-gatso",
+      "name": "Gatso",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:18:29",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Gatso (speed and traffic enforcement camera). OUI source: IEEE MA-L registry (Gatsometer); dedicated traffic-enforcement camera maker. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-grayshift-graykey",
+      "name": "Grayshift / GrayKey",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:71:F",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Grayshift / GrayKey (phone unlocking device). OUI source: IEEE MA-S registry (Grayshift); maker of the GrayKey phone-unlocking device sold to law enforcement. Match all 36 bits. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-harris-l3harris-public-safety-radio",
+      "name": "Harris / L3Harris public-safety radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:00:C3",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:02:68",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:06:EC",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:17:F3",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Harris / L3Harris public-safety radio. OUI source: IEEE registry (Harris); P25 radios used by police and fire. Weak: also broadcast and defence gear. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-havis-in-vehicle-console-docking-station",
+      "name": "Havis in-vehicle console / docking station",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:1F:9C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:98:3",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Havis in-vehicle console / docking station. OUI source: IEEE registry (Havis Inc.); police and fleet vehicle consoles and computer docks. Weak: also utility fleets. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-hytera",
+      "name": "Hytera",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "64:69:BC",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "9C:06:6E",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Hytera (two-way radios and body cameras). OUI source: IEEE MA-L registry (Hytera Communications Co.,ltd). Weak: mostly commercial two-way radios. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-idemia-public-security",
+      "name": "Idemia Public Security",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:24:AE",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Idemia Public Security (speed cameras, plate readers, police biometric terminals). OUI source: IEEE MA-L registry (Idemia Public Security France); maker of the Mesta Fusion speed cameras used in France and of police. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-international-police-technologies-in-car",
+      "name": "International Police Technologies in-car police video",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:1C:3F",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "International Police Technologies in-car police video (VisionHawk). OUI source: IEEE registry; IPT makes digital in-car video systems for police - its sole business (officer.com company profile). Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "BODYWORN"
+    },
+    {
+      "id": "fleet-ps-jenoptik-traffic-enforcement-camera",
+      "name": "Jenoptik traffic enforcement camera",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:04:4C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Jenoptik traffic enforcement camera. OUI source: IEEE registry (Jenoptik); speed and red-light enforcement (TraffiStar, VECTOR). Weak: also optics and industry. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-kustom-signals",
+      "name": "Kustom Signals",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "58:E8:76:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Kustom Signals (police radar and in-car video). OUI source: IEEE MA-M registry (Kustom Signals Inc); maker of police speed radar and in-car video. Match all 28 bits. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-l-3-mobile-vision-police-in-car-and-body",
+      "name": "L-3 Mobile-Vision police in-car and body video",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:6D:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:A4:B",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "38:73:EA:0",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "L-3 Mobile-Vision police in-car and body video. OUI source: IEEE registry (L-3 Communications Mobile-Vision); police in-car (Flashback) and body-worn video. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "BODYWORN"
+    },
+    {
+      "id": "fleet-ps-neology",
+      "name": "Neology",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:17:3D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Neology (plate reader / tolling). OUI source: IEEE MA-L registry (Neology); ALPR and RFID tolling equipment. Weak: mostly tolling. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-perceptics-plate-reader",
+      "name": "Perceptics plate reader",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:10:F",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:88:A",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Perceptics plate reader (border and law enforcement). OUI source: IEEE registry (Perceptics); license-plate readers used at US border crossings and by police. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-persistent-systems-mpu5-tactical-mesh-ra",
+      "name": "Persistent Systems MPU5 tactical mesh radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:18:A6",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Persistent Systems MPU5 tactical mesh radio. OUI source: IEEE registry; MPU5 mesh radios used by SWAT teams and the military. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-pro-vision",
+      "name": "Pro-Vision",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "9C:83:BF",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Pro-Vision (body cameras and fleet video). OUI source: IEEE MA-L registry (PRO-VISION, Inc.); body-worn and vehicle video for police, transit and school buses - verify. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "BODYWORN"
+    },
+    {
+      "id": "fleet-ps-q-free-tolling-plate-reader",
+      "name": "Q-Free tolling / plate reader",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:12:8E",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:81:6",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "64:55:63",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Q-Free tolling / plate reader. OUI source: IEEE registry (Q-Free); tolling, ANPR and traffic management. Weak: mostly tolling. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-quercus-plate-reader-camera",
+      "name": "Quercus plate-reader camera",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:C0:1",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:FD:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:03:D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:40:B",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:4C:1",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:77:7",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:A1:2",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:FF:B",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "8C:1F:64:9B:9",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "8C:1F:64:B9:A",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "8C:1F:64:D7:C",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Quercus plate-reader camera (SmartLPR). OUI source: IEEE registry (Quercus Technologies, Spain); ANPR/LPR camera maker. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-redflex",
+      "name": "Redflex",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:30:7E",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Redflex (red-light and speed camera). OUI source: IEEE MA-L registry (Redflex Communication Systems); dedicated traffic-enforcement camera maker. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-robot-visual-systems-speed-red-light-cam",
+      "name": "Robot Visual Systems speed / red-light camera",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:82:3",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Robot Visual Systems speed / red-light camera (Jenoptik). OUI source: IEEE registry (Robot Visual Systems, now Jenoptik); traffic-enforcement cameras. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-selex",
+      "name": "Selex",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:17:28",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:52:1",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "70:B3:D5:F5:E",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Selex (Leonardo) TETRA / public-safety radio. OUI source: IEEE registry (Selex); TETRA and public-safety radios. Weak: also defence. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-sensys-gatso",
+      "name": "Sensys Gatso",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:22:9F",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Sensys Gatso (traffic enforcement camera). OUI source: IEEE MA-L registry (Sensys Traffic AB); traffic-enforcement cameras. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-septier-interception-equipment",
+      "name": "Septier interception equipment",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:2A:5",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Septier interception equipment. OUI source: IEEE registry (Septier Communication); cellular interception and location systems for law enforcement. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-sepura",
+      "name": "Sepura",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:1E:96",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Sepura (TETRA police radios). OUI source: IEEE MA-L registry (Sepura Limited); TETRA radios used by police in Europe and elsewhere. Weak: also used by transport a. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-silicon-labs-module-seen-on-flock-camera",
+      "name": "Silicon Labs module seen on Flock cameras",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "58:8E:81",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "EC:1B:BD",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "90:35:EA",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Silicon Labs module seen on Flock cameras (community list). OUI source: IEEE MA-L (Silicon Laboratories); listed by colonelpanichacks/flock-you (list by @NitekryDPaul, DeFlockJoplin); colonelp. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-silicon-labs-radio-seen-on-flock-camera",
+      "name": "Silicon Labs radio seen on Flock camera-pole external batteries",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "04:0D:84",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "1C:34:F1",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "38:5B:44",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "94:34:69",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "B4:E3:F9",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "F0:82:C0",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Silicon Labs radio seen on Flock camera-pole external batteries (community list). OUI source: IEEE MA-L (Silicon Laboratories); listed by OffGridPete/Fieldwatch. Common chip/module maker: a clue, not proof. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-silvus-tactical-mesh-radio",
+      "name": "Silvus tactical mesh radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "C4:7C:8D:A",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Silvus tactical mesh radio. OUI source: IEEE MA-M registry (Silvus Technologies); MANET radios for police robots, drones and SWAT. Also military and industry. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-simoco-public-safety-radio",
+      "name": "Simoco public-safety radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:0E:06",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:1A:08",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Simoco public-safety radio. OUI source: IEEE registry (Simoco); DMR, TETRA and P25 radio for emergency services and utilities. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-tait",
+      "name": "Tait",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "8C:1F:64:A7:8",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:0D:CA",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Tait (two-way radios). OUI source: IEEE MA-S registry (TAIT Global LLC). Weak: police, utilities and transport radios. Match all 36 bits. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-teltronic",
+      "name": "Teltronic",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "54:02:37",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:04:18",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Teltronic (TETRA radios). OUI source: IEEE MA-L registry (Teltronic AG); TETRA radios for public safety. Weak: also transport. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-thales-tactical-public-safety-radio",
+      "name": "Thales tactical / public-safety radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:26:B3",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:50:C2:8A:D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Thales tactical / public-safety radio. OUI source: IEEE registry (Thales Communications Inc, US); tactical and P25 radios. Mostly military. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-trellisware-tactical-mesh-radio",
+      "name": "TrellisWare tactical mesh radio",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:1E:3F",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "TrellisWare tactical mesh radio. OUI source: IEEE registry; tactical MANET radios. Mostly military. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-ubicquia-smart-streetlight-hub",
+      "name": "Ubicquia smart streetlight hub",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "94:7B:BE",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Ubicquia smart streetlight hub (powers police plate readers and cameras). OUI source: IEEE MA-L registry (Ubicquia LLC); UbiHub streetlight nodes power ALPR and video for police in 50+ US cities (e.g. San D. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-vievu-police-body-camera",
+      "name": "Vievu police body camera",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "FC:01:9E",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Vievu police body camera (now Axon). OUI source: IEEE registry (Vievu); body-worn cameras sold to police, acquired by Axon in 2018. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "BODYWORN"
+    },
+    {
+      "id": "fleet-ps-vitronic-poliscan-speed-enforcement",
+      "name": "Vitronic PoliScan speed enforcement",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "98:6D:35:6",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Vitronic PoliScan speed enforcement. OUI source: IEEE MA-M registry (Vitronic); PoliScan lidar speed enforcement. Also industrial vision - verify. Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    },
+    {
+      "id": "fleet-ps-zebra-technologies",
+      "name": "Zebra Technologies",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "00:05:12",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:07:4D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:15:70",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:23:68",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "00:A0:F8",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "40:83:DE",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "48:8E:B7",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "60:95:32",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "74:93:A4",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "78:B8:D6",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "84:24:8D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "88:BC:AC",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "90:75:DE",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "94:FB:29",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "C4:7D:CC",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "C8:1C:FE",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "OUI",
+          "text": "FC:59:7A",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Zebra Technologies (mobile printers, incl. in-car e-ticket printers). OUI source: IEEE MA-L (Zebra Technologies Inc); public police procurement records list Zebra mobile printers for electronic tickets . Confidence: candidate. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "Public-safety or surveillance vendor equipment nearby.",
+      "builtIn": false,
+      "kind": "LAW_ENFORCEMENT"
+    },
+    {
+      "id": "fleet-ps-zepcam-body-camera",
+      "name": "Zepcam body camera",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "OUI",
+          "text": "48:46:8D",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Zepcam body camera. OUI source: IEEE MA-L registry (Zepcam B.V.): a dedicated body-worn camera manufacturer for police, security and transit, so the who. Confidence: confirmed. Imported from RFSentinel global OUI presets.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "BODYWORN"
+    },
+    {
+      "id": "fleet-ps-flock-community-names",
+      "name": "Flock Safety (community BLE names)",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "NAME_GLOB",
+          "text": "FlockCam*",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": "BLE",
+          "enabled": true
+        },
+        {
+          "kind": "NAME_CONTAINS",
+          "text": "FlockCam",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Community-observed BLE names on Flock Safety hardware (FlockCam). Complements the stock Flock fleet (Flock-* SSID, FS Ext, Penguin, Pigvision). Source: flock-detection ESP32 project.",
+      "attentionNote": "Flock Safety ALPR hardware nearby.",
+      "builtIn": false,
+      "kind": "SURVEILLANCE"
+    }
+  ]
+}

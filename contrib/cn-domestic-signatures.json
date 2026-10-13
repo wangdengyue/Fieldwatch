@@ -1,0 +1,667 @@
+{
+  "format": "fieldwatch-signatures",
+  "formatVersion": 1,
+  "exportedAt": "",
+  "appVersion": "community-cn",
+  "catalogVersion": 0,
+  "fleets": [
+    {
+      "id": "fleet-cn-xiaomi",
+      "name": "Xiaomi / Mi Beacon",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 3,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 911,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        },
+        {
+          "kind": "SERVICE_UUID",
+          "text": "FE95",
+          "companyId": 0,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Xiaomi phone, wearable, or smart-home device. Company 0x038F is Xiaomi Inc. Service FE95 is the community-documented Mi Beacon frame (MiJia sensors, bands, scales). Not SIG-registered; field-verify.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "HOME"
+    },
+    {
+      "id": "fleet-cn-huawei",
+      "name": "Huawei",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 637,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Huawei phone, watch, or FreeBuds-class accessory. Company 0x027D is HUAWEI Technologies. Common in dense areas; volume expected.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-honor",
+      "name": "Honor",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 2502,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Honor Device Co. (post-split Honor). Company 0x09C6.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-oppo",
+      "name": "OPPO",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 1946,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "GuangDong OPPO Mobile. Company 0x079A. Phones and Enco earbuds.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-oneplus",
+      "name": "OnePlus",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 1839,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "OnePlus Electronics (Shenzhen). Company 0x072F.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-vivo",
+      "name": "vivo",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 2103,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "vivo Mobile Communication. Company 0x0837. Phones and TWS earbuds.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-ninebot",
+      "name": "Ninebot / Segway-Ninebot",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 2,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3871,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Ninebot (Changzhou). Company 0x0F1F. No.9 e-scooters, e-bikes, and go-karts common in CN cities.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "VEHICLE"
+    },
+    {
+      "id": "fleet-cn-mobike",
+      "name": "Mobike",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 2,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 1203,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "mobike (Hong Kong) Limited. Company 0x04B3. Bike-share lock BLE.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "VEHICLE"
+    },
+    {
+      "id": "fleet-cn-lumi-aqara",
+      "name": "Aqara / Lumi",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 4,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 2855,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Lumi United Technology. Company 0x0B27. Aqara / MiJia ecosystem sensors and switches.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "HOME"
+    },
+    {
+      "id": "fleet-cn-huami",
+      "name": "Amazfit / Zepp (Huami)",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 1,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 343,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Anhui Huami Information Technology. Company 0x0157. Amazfit / Zepp watches and bands, older Mi Band firmware.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "WEARABLE"
+    },
+    {
+      "id": "fleet-cn-hikvision-ble",
+      "name": "Hikvision BLE",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 8,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3621,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Hangzhou Hikvision Digital Technology BLE. Company 0x0E25. Cameras and NVRs with BLE setup radios.",
+      "attentionNote": "Hikvision imaging device nearby.",
+      "builtIn": false,
+      "kind": "CAMERA"
+    },
+    {
+      "id": "fleet-cn-anker",
+      "name": "Anker",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 6,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3266,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Anker Innovations. Company 0x0CC2. Chargers, Soundcore audio, Eufy sensors.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "OTHER"
+    },
+    {
+      "id": "fleet-cn-baseus",
+      "name": "Baseus",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 6,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3686,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Shenzhen Baseus Technology. Company 0x0E66. Accessories and audio.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "OTHER"
+    },
+    {
+      "id": "fleet-cn-ugreen",
+      "name": "Ugreen",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 6,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 4006,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Ugreen Group Limited. Company 0x0FA6. Accessories, NAS, audio.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "OTHER"
+    },
+    {
+      "id": "fleet-cn-midea",
+      "name": "Midea",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 4,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 1704,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "GD Midea Air-Conditioning Equipment. Company 0x06A8. Smart ACs and appliances.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "HOME"
+    },
+    {
+      "id": "fleet-cn-gree",
+      "name": "Gree",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 4,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3363,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "GREE Electric Appliances of Zhuhai. Company 0x0D23. Smart ACs.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "HOME"
+    },
+    {
+      "id": "fleet-cn-haier",
+      "name": "Haier",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 4,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 2345,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Qingdao Haier Technology. Company 0x0929. Smart appliances.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "HOME"
+    },
+    {
+      "id": "fleet-cn-tcl",
+      "name": "TCL",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 4,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3014,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "TCL Communication Equipment. Company 0x0BC6. TVs and phones.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "HOME"
+    },
+    {
+      "id": "fleet-cn-meizu",
+      "name": "Meizu",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 939,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Meizu Technology. Company 0x03AB.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-zte",
+      "name": "ZTE",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 2392,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "ZTE Corporation. Company 0x0958. Phones and CPE hardware.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-lenovo",
+      "name": "Lenovo",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 709,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Lenovo (Singapore). Company 0x02C5. Phones, tablets, laptops.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-transsion",
+      "name": "Transsion (Tecno/itel/Infinix)",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 5,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 2370,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "TRANSSION HOLDINGS. Company 0x0942. Tecno, itel, Infinix handsets.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "PHONE"
+    },
+    {
+      "id": "fleet-cn-iflytek",
+      "name": "iFlytek",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 7,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3569,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "iFLYTEK (Suzhou). Company 0x0DF1. Voice recorders and translation hardware.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "AUDIO"
+    },
+    {
+      "id": "fleet-cn-alibaba",
+      "name": "Alibaba / Tmall Genie",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 4,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 3781,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Alibaba (China) Co. Company 0x0EC5. Tmall Genie speakers and AliOS Things devices.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "HOME"
+    },
+    {
+      "id": "fleet-cn-tencent",
+      "name": "Tencent",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 6,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 314,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Tencent Holdings. Company 0x013A. Tencent devices and beacons.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "OTHER"
+    },
+    {
+      "id": "fleet-cn-baidu",
+      "name": "Baidu",
+      "enabled": true,
+      "matchAny": true,
+      "colorIndex": 6,
+      "rules": [
+        {
+          "kind": "MANUFACTURER_ID",
+          "text": "",
+          "companyId": 284,
+          "dataPrefixHex": "",
+          "radio": null,
+          "enabled": true
+        }
+      ],
+      "minPeers": 0,
+      "peerWindowSec": 60,
+      "clusterByOui": false,
+      "sequentialMac": false,
+      "notes": "Baidu. Company 0x011C. Xiaodu speakers and Apollo hardware.",
+      "attentionNote": "",
+      "builtIn": false,
+      "kind": "OTHER"
+    }
+  ]
+}

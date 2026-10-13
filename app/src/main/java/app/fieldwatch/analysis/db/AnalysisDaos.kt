@@ -13,6 +13,12 @@ interface DeviceDao {
     @Query("SELECT * FROM analysis_device WHERE deviceKey = :key")
     suspend fun find(key: String): DeviceEntity?
 
+    @Query("SELECT * FROM analysis_device WHERE deviceKey IN (:keys)")
+    suspend fun findByKeys(keys: List<String>): List<DeviceEntity>
+
+    @Query("SELECT * FROM analysis_device ORDER BY lastSeen DESC LIMIT :limit")
+    suspend fun recent(limit: Int): List<DeviceEntity>
+
     @Query("SELECT COUNT(*) FROM analysis_device")
     suspend fun count(): Int
 
@@ -30,6 +36,15 @@ interface PresenceDao {
 
     @Query("SELECT * FROM analysis_presence WHERE deviceKey = :key AND endTs = 0 ORDER BY startTs DESC LIMIT 1")
     suspend fun openSpan(key: String): PresenceEntity?
+
+    @Query("SELECT * FROM analysis_presence WHERE endTs = 0 AND deviceKey IN (:keys)")
+    suspend fun openSpansFor(keys: List<String>): List<PresenceEntity>
+
+    @Query("SELECT * FROM analysis_presence WHERE deviceKey = :key ORDER BY startTs DESC LIMIT :limit")
+    suspend fun spansFor(key: String, limit: Int): List<PresenceEntity>
+
+    @Query("SELECT COUNT(DISTINCT geohash) FROM analysis_presence WHERE deviceKey = :key AND geohash != ''")
+    suspend fun placeCount(key: String): Int
 
     @Query("SELECT COUNT(*) FROM analysis_presence")
     suspend fun count(): Int
