@@ -9,6 +9,7 @@ import android.os.Looper
 import androidx.core.content.ContextCompat
 import app.fieldwatch.alert.Alerter
 import app.fieldwatch.analysis.AnalysisEngine
+import app.fieldwatch.radio.CellMonitor
 import app.fieldwatch.radio.GnssMonitor
 import app.fieldwatch.data.ConfigStore
 import app.fieldwatch.data.DeviceStore
@@ -58,6 +59,7 @@ class FieldwatchApp : Application() {
     lateinit var gnssProfile: GnssProfileStore
         private set
     lateinit var analysis: AnalysisEngine
+    lateinit var cells: CellMonitor
         private set
 
     /** Bluetooth bursts, Wi-Fi bursts, or both in time order. */
@@ -104,6 +106,19 @@ class FieldwatchApp : Application() {
         gnssProfile = GnssProfileStore(this)
         gnss = GnssMonitor(this)
         analysis = AnalysisEngine(this, scope, alerter)
+        cells = CellMonitor(this, scope, fixProvider = {
+            lastFix?.let { Triple(it.first, it.second, System.currentTimeMillis() - lastFixAt) }
+        })
+        cells.onStationaryHandover = { change ->
+            analysis.noteExternalAlert(
+                type = "CELL_CHANGE",
+                title = "Cell switched while parked",
+                detail = "Serving cell changed from ${change.from} to ${change.to} while this phone was " +
+                    "stationary — a classic fake-tower sign. Often just a network-side handover.",
+                deviceKey = "cell:${change.to}",
+            )
+        }
+        cells.start()
         runBlocking {
             config.load()
             if (gnssProfile.profile.value == null && config.settings.gnssMonitor) {

@@ -49,6 +49,7 @@ import kotlinx.coroutines.delay
 fun ScanStatusScreen(
     state: FieldwatchUi,
     onBack: () -> Unit,
+    onCells: () -> Unit = {},
 ) {
     val context = LocalContext.current
     var now by remember { mutableLongStateOf(System.currentTimeMillis()) }
@@ -115,6 +116,10 @@ fun ScanStatusScreen(
                     )
                 }
             }
+            FieldwatchActionButton(
+                onClick = onCells,
+                modifier = Modifier.fillMaxWidth(),
+            ) { Text("Cell towers") }
             FieldwatchActionButton(
                 onClick = {
                     val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager

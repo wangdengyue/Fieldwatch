@@ -110,6 +110,19 @@ class AnalysisEngine(
     }
 
     /**
+     * External subsystem (cell monitor, …) reports an analysis-timeline event.
+     * Deduped per (deviceKey, type, place); notifies when alerts are on.
+     */
+    fun noteExternalAlert(type: String, title: String, detail: String, deviceKey: String = "", geohash: String = "") {
+        if (!enabled) return
+        scope.launch(Dispatchers.Default) {
+            writeMutex.withLock {
+                fireAlert(type, deviceKey, geohash, title, detail)
+            }
+        }
+    }
+
+    /**
      * M4: learn this batch into the (place, hour) baseline, then alarm on what
      * does not belong — but only once the bucket has learned enough visits, the
      * signal is strong, and the stranger stays on the air for two minutes.

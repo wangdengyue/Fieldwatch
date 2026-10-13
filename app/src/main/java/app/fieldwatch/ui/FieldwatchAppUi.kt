@@ -122,6 +122,7 @@ import app.fieldwatch.domain.FieldwatchDisclaimer
 import app.fieldwatch.domain.disclaimerOk
 import app.fieldwatch.radio.RadioPermissions
 import app.fieldwatch.ui.screen.DeviceDetailScreen
+import app.fieldwatch.ui.screen.CellsScreen
 import app.fieldwatch.ui.screen.HuntScreen
 import app.fieldwatch.ui.screen.LocateScreen
 import app.fieldwatch.ui.screen.FiltersScreen
@@ -733,7 +734,10 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
                 )
             }
             composable("scan-status") {
-                ScanStatusScreen(state = state, onBack = { nav.popBackStack() })
+                ScanStatusScreen(state = state, onBack = { nav.popBackStack() }, onCells = { nav.navigate("cells") })
+            }
+            composable("cells") {
+                CellsScreen(app = vm.fieldwatchApp, onBack = { nav.popBackStack() })
             }
             composable("radio-bookmarks") {
                 RadioBookmarksScreen(
