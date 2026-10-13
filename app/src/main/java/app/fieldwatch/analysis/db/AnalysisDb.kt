@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
         BaselineEntity::class,
         AlertEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = false,
 )
 abstract class AnalysisDb : RoomDatabase() {
@@ -30,7 +30,7 @@ abstract class AnalysisDb : RoomDatabase() {
                     context.applicationContext,
                     AnalysisDb::class.java,
                     "fieldwatch-analysis.db",
-                ).build().also { instance = it }
+                ).fallbackToDestructiveMigration().build().also { instance = it }
             }
     }
 }

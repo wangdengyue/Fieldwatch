@@ -24,18 +24,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import app.fieldwatch.FieldwatchApp
+import app.fieldwatch.analysis.db.AlertEntity
 import app.fieldwatch.analysis.db.DeviceEntity
 import app.fieldwatch.analysis.db.PresenceEntity
 import app.fieldwatch.ui.component.SectionCard
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-/** M2: engine counters + long-term tracked radios with presence spans. Alerts/baseline land in M4. */
+/** M3: counters + alert timeline + tracked radios (fixed, semi-fixed, rotating groups). */
 @Composable
 fun HistoryScreen(app: FieldwatchApp) {
     val status by app.analysis.status.collectAsState()
     val tracked by app.analysis.tracked.collectAsState()
+    val alerts by app.analysis.alerts.collectAsState()
     var detail by remember { mutableStateOf<DeviceEntity?>(null) }
 
     Column(
@@ -63,16 +66,24 @@ fun HistoryScreen(app: FieldwatchApp) {
             }
         }
         SectionCard(title = "Alerts") {
-            Text(
-                "Baseline alerts land here (M4).",
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                style = MaterialTheme.typography.bodySmall,
-            )
+            if (alerts.isEmpty()) {
+                Text(
+                    "No alerts yet. Rotating clusters and correlated MACs show here; baseline alerts land in M4.",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            } else {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    alerts.forEach { a ->
+                        AlertRow(a) { app.scope.launch { app.analysis.markAlertRead(a.id) } }
+                    }
+                }
+            }
         }
         SectionCard(title = "Tracked radios") {
             if (tracked.isEmpty()) {
                 Text(
-                    "Nothing yet. Fixed-MAC radios are recorded as they are heard; rotating stacks join in M3.",
+                    "Nothing yet. Fixed radios, separated trackers, and rotating groups are recorded as they are heard.",
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     style = MaterialTheme.typography.bodySmall,
                 )
@@ -93,6 +104,40 @@ fun HistoryScreen(app: FieldwatchApp) {
 
     detail?.let { d ->
         DeviceDetailDialog(app, d) { detail = null }
+    }
+}
+
+@Composable
+private fun AlertRow(a: AlertEntity, onMarkRead: () -> Unit) {
+    Column(
+        Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onMarkRead),
+    ) {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Text(
+                a.title,
+                color = MaterialTheme.colorScheme.onSurface,
+                style = if (a.read) MaterialTheme.typography.bodyMedium else MaterialTheme.typography.titleSmall,
+            )
+            Text(
+                ago(a.ts),
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                style = MaterialTheme.typography.labelSmall,
+            )
+        }
+        Text(
+            a.detail,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            style = MaterialTheme.typography.bodySmall,
+        )
+        if (!a.read) {
+            Text(
+                "unread — tap to mark read",
+                color = MaterialTheme.colorScheme.tertiary,
+                style = MaterialTheme.typography.labelSmall,
+            )
+        }
     }
 }
 
@@ -119,6 +164,11 @@ private fun TrackedRow(d: DeviceEntity, onClick: () -> Unit) {
         Text(
             buildString {
                 append(d.kind)
+                if (d.rotClass == "ROTATING") {
+                    val n = d.recentMacs.split(",").filter { it.isNotBlank() }.size.coerceAtLeast(1)
+                    append(" · rotating ×").append(n)
+                }
+                if (d.rotClass == "SEMI_FIXED") append(" · semi-fixed")
                 d.vendor?.takeIf { it.isNotBlank() }?.let { append(" · ").append(it) }
                 append(" · ").append(d.sessionCount).append(if (d.sessionCount == 1) " session" else " sessions")
                 append(" · since ").append(dayOf(d.firstSeen))

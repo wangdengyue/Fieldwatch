@@ -41,6 +41,8 @@ data class DeviceEntity(
     val hitCount: Long,
     val sessionCount: Int,
     val lastMac: String,
+    /** Recent MACs of a rotating group, comma-joined, newest first. Empty for MAC-keyed rows. */
+    val recentMacs: String = "",
 )
 
 /** One continuous presence span of a logical radio (closed after a silence gap). */

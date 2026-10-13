@@ -1,12 +1,24 @@
 package app.fieldwatch.analysis
 
 import androidx.room.withTransaction
+import app.fieldwatch.analysis.db.AlertEntity
 import app.fieldwatch.analysis.db.AnalysisDb
 import app.fieldwatch.analysis.db.DeviceEntity
 import app.fieldwatch.analysis.db.PresenceEntity
 import app.fieldwatch.analysis.db.RotClass
 import app.fieldwatch.domain.MacUtil
 import app.fieldwatch.domain.Sighting
+
+/** One classified observation ready to persist. [deviceKey] is MAC-based for
+ *  FIXED / SEMI_FIXED radios and fingerprint-based for ROTATING groups. */
+data class TrackObs(
+    val deviceKey: String,
+    val rotClass: RotClass,
+    val stableKey: String,
+    val sighting: Sighting,
+    /** Rotating groups: current MAC roll, newest first. Empty otherwise. */
+    val recentMacs: String = "",
+)
 
 /** What to do with a device's presence span when a new observation arrives. */
 sealed interface SpanAction {
@@ -45,17 +57,17 @@ class HistoryStore(
             "mac:${s.kind.name}:${MacUtil.normalize(s.mac)}"
     }
 
-    /** Batched ingest. One transaction per batch; rotating radios are skipped until M3. */
-    suspend fun ingest(seen: List<Sighting>) = db.withTransaction {
+    /** Batched ingest of classified observations. One transaction per batch. */
+    suspend fun ingest(observations: List<TrackObs>) = db.withTransaction {
         val now = now()
-        val trackable = seen.filter { !it.randomized }
-        if (trackable.isEmpty()) return@withTransaction
-        val keys = trackable.map(::deviceKeyOf).distinct()
+        if (observations.isEmpty()) return@withTransaction
+        val keys = observations.map { it.deviceKey }.distinct()
         val existing = db.devices().findByKeys(keys).associateBy { it.deviceKey }
         val openSpans = db.presence().openSpansFor(keys).associateBy { it.deviceKey }
 
-        for (s in trackable) {
-            val key = deviceKeyOf(s)
+        for (obs in observations) {
+            val s = obs.sighting
+            val key = obs.deviceKey
             val prev = existing[key]
             val span = openSpans[key]
             val action = decideSpan(prev?.lastSeen, span?.id?.takeIf { it != 0L }, now)
@@ -92,16 +104,21 @@ class HistoryStore(
                     vendor = s.vendor,
                     name = s.name,
                     fleets = s.fleetIds.joinToString(","),
-                    rotClass = RotClass.FIXED.name,
-                    stableKey = "",
+                    rotClass = obs.rotClass.name,
+                    stableKey = obs.stableKey,
                     firstSeen = prev?.firstSeen ?: s.firstSeen,
                     lastSeen = now,
                     hitCount = (prev?.hitCount ?: 0L) + 1,
                     sessionCount = (prev?.sessionCount ?: 0) + if (newSession) 1 else 0,
                     lastMac = MacUtil.normalize(s.mac),
+                    recentMacs = obs.recentMacs.ifBlank { prev?.recentMacs ?: "" },
                 ),
             )
         }
+    }
+
+    suspend fun alert(alert: AlertEntity) {
+        db.alerts().insert(alert)
     }
 
     private fun extend(span: PresenceEntity, s: Sighting): PresenceEntity {
