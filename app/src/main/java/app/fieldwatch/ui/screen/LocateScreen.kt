@@ -18,6 +18,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +33,7 @@ import app.fieldwatch.domain.LocateEngine
 import app.fieldwatch.domain.LocateQuality
 import app.fieldwatch.domain.LocateSample
 import app.fieldwatch.ui.FieldwatchViewModel
+import kotlinx.coroutines.delay
 import kotlin.math.cos
 import kotlin.math.max
 
@@ -47,12 +49,24 @@ fun LocateScreen(
     onBack: () -> Unit,
 ) {
     val target by vm.locateTarget.collectAsStateWithLifecycle()
+    val ownSamples by vm.locateSamples.collectAsStateWithLifecycle()
     val t = target
-    val samples = t?.gpsTrail
-        ?.filter { it.rssi < 0 }
-        ?.map { LocateSample(it.at, it.lat, it.lon, it.rssi) }
-        ?: emptyList()
+    // Dense fixes from this session, plus any gpsTrail fixes since Locate opened.
+    val samples = ownSamples + (
+        t?.gpsTrail
+            ?.filter { it.rssi < 0 && it.at >= vm.locateSinceTs }
+            ?.map { LocateSample(it.at, it.lat, it.lon, it.rssi) }
+            ?: emptyList()
+        )
     val estimate = LocateEngine.estimate(samples)
+
+    // Sample the phone fix against the target's live RSSI every 2 seconds.
+    LaunchedEffect(t?.key) {
+        while (true) {
+            vm.sampleLocateNow()
+            delay(2_000L)
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -84,6 +98,9 @@ fun LocateScreen(
                     style = MaterialTheme.typography.titleSmall,
                     fontFamily = FontFamily.Monospace,
                 )
+                androidx.compose.material3.TextButton(onClick = { vm.resetLocate() }) {
+                    Text("Start fresh")
+                }
             }
 
             val est = estimate

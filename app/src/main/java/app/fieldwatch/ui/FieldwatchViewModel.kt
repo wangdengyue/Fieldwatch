@@ -16,6 +16,8 @@ import app.fieldwatch.BuildConfig
 import app.fieldwatch.FieldwatchApp
 import app.fieldwatch.domain.AircraftTrail
 import app.fieldwatch.domain.AppSettings
+import app.fieldwatch.domain.LocateSample
+import app.fieldwatch.domain.Rssi
 import app.fieldwatch.domain.attentionNotes
 import app.fieldwatch.domain.signatureNotes
 import app.fieldwatch.domain.detectionPolicy
@@ -86,6 +88,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.yield
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -667,12 +670,46 @@ class FieldwatchViewModel(application: Application) : AndroidViewModel(applicati
         list.firstOrNull { it.key == key }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
 
+    /**
+     * Dense fixes collected by the Locate screen itself. The shared gpsTrail
+     * drops fixes closer than 8 m — fine for a walk, useless in a room —
+     * so Locate samples every couple of seconds on its own.
+     */
+    private val _locateSamples = MutableStateFlow<List<LocateSample>>(emptyList())
+    val locateSamples = _locateSamples.asStateFlow()
+    private var locateSince = 0L
+    val locateSinceTs: Long
+        get() = locateSince
+
     fun startLocate(device: Sighting) {
         locateKey.value = device.key
+        locateSince = System.currentTimeMillis()
+        _locateSamples.value = emptyList()
+    }
+
+    fun resetLocate() {
+        locateSince = System.currentTimeMillis()
+        _locateSamples.value = emptyList()
+    }
+
+    /** Called by the Locate screen on a timer. No-op without a fresh fix or a live target. */
+    fun sampleLocateNow() {
+        val key = locateKey.value ?: return
+        val target = app.devices.devices.value.firstOrNull { it.key == key } ?: return
+        if (!Rssi.measured(target.rssi)) return
+        val fix = app.lastFix ?: return
+        if (System.currentTimeMillis() - app.lastFixAt > 10_000L) return
+        _locateSamples.value = _locateSamples.value + LocateSample(
+            at = System.currentTimeMillis(),
+            lat = fix.first,
+            lon = fix.second,
+            rssi = target.rssi,
+        )
     }
 
     fun stopLocate() {
         locateKey.value = null
+        _locateSamples.value = emptyList()
     }
 
     fun huntTick(beepOn: Boolean, vibrateOn: Boolean) {
