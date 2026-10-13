@@ -92,6 +92,7 @@ fun SettingsScreen(
     vm: FieldwatchViewModel,
     onRadioBookmarks: () -> Unit,
     onScanStatus: () -> Unit,
+    onCells: () -> Unit = {},
     onShowLiveTour: () -> Unit = {},
 ) {
     val context = LocalContext.current
@@ -769,6 +770,15 @@ fun SettingsScreen(
             ) { Text("Show Live tour") }
             Text(
                 "Shows the Live tour again: display, pause, filters, signatures, reports, and settings.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            FieldwatchActionButton(
+                onClick = onCells,
+                modifier = Modifier.fillMaxWidth(),
+            ) { Text("Cell towers") }
+            Text(
+                "Serving and neighbor cells, and the handover log. A switch while the phone is parked is flagged.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )

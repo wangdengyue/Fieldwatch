@@ -726,6 +726,7 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
                     vm = vm,
                     onRadioBookmarks = { nav.navigate("radio-bookmarks") },
                     onScanStatus = { nav.navigate("scan-status") },
+                    onCells = { nav.navigate("cells") },
                     onShowLiveTour = {
                         vm.showLiveTour {
                             nav.navigate("live") { launchSingleTop = true }
