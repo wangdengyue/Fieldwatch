@@ -46,6 +46,9 @@ interface PresenceDao {
     @Query("SELECT COUNT(DISTINCT geohash) FROM analysis_presence WHERE deviceKey = :key AND geohash != ''")
     suspend fun placeCount(key: String): Int
 
+    @Query("SELECT COUNT(*) FROM analysis_presence WHERE deviceKey = :key AND geohash = :geohash LIMIT 1")
+    suspend fun hasGeohash(key: String, geohash: String): Int
+
     @Query("SELECT COUNT(*) FROM analysis_presence")
     suspend fun count(): Int
 
@@ -63,6 +66,9 @@ interface BaselineDao {
 
     @Query("SELECT COUNT(*) FROM analysis_baseline")
     suspend fun count(): Int
+
+    @Query("SELECT * FROM analysis_baseline ORDER BY updatedAt DESC LIMIT :limit")
+    suspend fun latest(limit: Int): List<BaselineEntity>
 }
 
 @Dao
@@ -75,6 +81,9 @@ interface AlertDao {
 
     @Query("SELECT COUNT(*) FROM analysis_alert WHERE `read` = 0")
     suspend fun unreadCount(): Int
+
+    @Query("SELECT COUNT(*) FROM analysis_alert WHERE deviceKey = :deviceKey AND type = :type AND geohash = :geohash")
+    suspend fun countFor(deviceKey: String, type: String, geohash: String): Int
 
     @Query("SELECT * FROM analysis_alert ORDER BY ts DESC LIMIT :limit")
     suspend fun latest(limit: Int): List<AlertEntity>

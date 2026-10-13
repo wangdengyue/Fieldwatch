@@ -82,6 +82,8 @@ data class BaselineEntity(
     val ouis: String,
     /** Comma-joined fleet kinds (classes) normal here. */
     val fleetKinds: String,
+    /** Comma-joined deviceKeys normal here (mac keys + rotating-group keys, capped). */
+    val deviceKeys: String = "",
     val updatedAt: Long,
 )
 

@@ -57,8 +57,13 @@ class HistoryStore(
             "mac:${s.kind.name}:${MacUtil.normalize(s.mac)}"
     }
 
-    /** Batched ingest of classified observations. One transaction per batch. */
-    suspend fun ingest(observations: List<TrackObs>) = db.withTransaction {
+    /** A span that opened for a device seen before — candidate for KNOWN_DEVICE_NEW_PLACE. */
+    data class OpenedSpan(val deviceKey: String, val geohash: String, val returning: Boolean)
+
+    /** Batched ingest of classified observations. One transaction per batch. Returns spans that opened. */
+    suspend fun ingest(observations: List<TrackObs>): List<OpenedSpan> {
+        val opened = ArrayList<OpenedSpan>()
+        db.withTransaction {
         val now = now()
         if (observations.isEmpty()) return@withTransaction
         val keys = observations.map { it.deviceKey }.distinct()
@@ -90,6 +95,7 @@ class HistoryStore(
                             lon = s.longitude,
                         ),
                     )
+                    opened += OpenedSpan(key, geoOf(s), returning = prev != null)
                 }
                 is SpanAction.Extend -> {
                     span?.let { db.presence().upsert(extend(it, s)) }
@@ -115,6 +121,8 @@ class HistoryStore(
                 ),
             )
         }
+        }
+        return opened
     }
 
     suspend fun alert(alert: AlertEntity) {

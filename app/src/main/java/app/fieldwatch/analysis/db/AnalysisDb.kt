@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
         BaselineEntity::class,
         AlertEntity::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = false,
 )
 abstract class AnalysisDb : RoomDatabase() {

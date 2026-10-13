@@ -611,6 +611,8 @@ data class AppSettings(
     val analysisEnabled: Boolean = true,
     /** Days of presence history to keep before pruning. */
     val analysisRetainDays: Int = 30,
+    /** Baseline / anomaly notifications from the analysis layer. Own channel, default on. */
+    val analysisAlertsEnabled: Boolean = true,
     /**
      * Ask for Wi-Fi AP scans faster than the stock ~30 s cadence.
      * Only takes effect while Android Wi-Fi scan throttling is off

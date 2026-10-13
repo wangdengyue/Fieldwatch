@@ -555,10 +555,51 @@ class Alerter(private val context: Context) {
         )
     }
 
+    /**
+     * Analysis-layer anomaly (baseline deviation, new place for a known radio).
+     * Own low-key channel so it can be muted or scheduled without touching the
+     * watchlist or GNSS channels. No beep, no voice — these are FYI.
+     */
+    fun analysisAlert(title: String, text: String) {
+        ensureAnalysisChannel()
+        val pending = PendingIntent.getActivity(
+            context,
+            ANALYSIS_NOTE_ID,
+            Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            },
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+        )
+        val note = NotificationCompat.Builder(context, ANALYSIS_CHANNEL)
+            .setSmallIcon(R.drawable.ic_stat_fieldwatch)
+            .setContentTitle(title)
+            .setContentText(text)
+            .setStyle(NotificationCompat.BigTextStyle().bigText(text))
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setAutoCancel(true)
+            .setSilent(true)
+            .setContentIntent(pending)
+            .build()
+        manager.notify(ANALYSIS_NOTE_ID, note)
+    }
+
+    private fun ensureAnalysisChannel() {
+        if (Build.VERSION.SDK_INT < 26) return
+        if (manager.getNotificationChannel(ANALYSIS_CHANNEL) != null) return
+        manager.createNotificationChannel(
+            NotificationChannel(ANALYSIS_CHANNEL, "Analysis alerts", NotificationManager.IMPORTANCE_DEFAULT).apply {
+                description = "Baseline deviations and long-term findings from the analysis layer. Silent by design; mute or schedule here."
+                setSound(null, null)
+            },
+        )
+    }
+
     companion object {
         const val CHANNEL = "fieldwatch_watch_v3"
         const val GNSS_CHANNEL = "fieldwatch_gnss"
+        const val ANALYSIS_CHANNEL = "fieldwatch_analysis"
         private const val GNSS_NOTE_ID = 71_001
+        private const val ANALYSIS_NOTE_ID = 72_001
         const val EXTRA_DEVICE_KEY = "device_key"
         private const val FREQ_HZ = 1050.0
         private const val PIP_MS = 85

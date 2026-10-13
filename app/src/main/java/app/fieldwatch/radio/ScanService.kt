@@ -196,6 +196,7 @@ class ScanService : LifecycleService() {
                 app.sits.ingest(seen, fleets, app.config.watchlist)
                 app.analysis.enabled = settings.analysisEnabled
                 app.analysis.retainDays = settings.analysisRetainDays
+                app.analysis.alertsEnabled = settings.analysisAlertsEnabled
                 app.analysis.ingest(seen, fleets)
                 if (settings.loggingEnabled) {
                     val toLog = seen.filter { it.hitCount <= 1 || it.hitCount % 25 == 0 }.take(16)

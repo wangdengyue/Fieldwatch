@@ -103,7 +103,7 @@ class FieldwatchApp : Application() {
         tak = TakPublisher()
         gnssProfile = GnssProfileStore(this)
         gnss = GnssMonitor(this)
-        analysis = AnalysisEngine(this, scope)
+        analysis = AnalysisEngine(this, scope, alerter)
         runBlocking {
             config.load()
             if (gnssProfile.profile.value == null && config.settings.gnssMonitor) {

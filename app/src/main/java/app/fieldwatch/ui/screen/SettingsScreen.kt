@@ -624,6 +624,24 @@ fun SettingsScreen(
             }
             }
 
+            SectionCard("Analysis") {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("Long-term history and baseline", Modifier.weight(1f))
+                FieldwatchSwitch(settings.analysisEnabled, { on -> vm.updateSettings { it.copy(analysisEnabled = on) } })
+            }
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text("Baseline alerts", Modifier.weight(1f))
+                FieldwatchSwitch(settings.analysisAlertsEnabled, { on -> vm.updateSettings { it.copy(analysisAlertsEnabled = on) } })
+            }
+            Text(
+                "The History tab learns what radios are normal for each place and hour. " +
+                    "After a place has been visited enough, a strong stranger that stays on the air raises a silent notification. " +
+                    "History is kept for " + settings.analysisRetainDays + " days.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            }
+
             SectionCard("Logging") {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text("Write detections to disk", Modifier.weight(1f))

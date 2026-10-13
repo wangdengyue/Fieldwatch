@@ -24,7 +24,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import app.fieldwatch.FieldwatchApp
+import app.fieldwatch.analysis.BaselineEngine
+import app.fieldwatch.analysis.usualCount
 import app.fieldwatch.analysis.db.AlertEntity
+import app.fieldwatch.analysis.db.BaselineEntity
 import app.fieldwatch.analysis.db.DeviceEntity
 import app.fieldwatch.analysis.db.PresenceEntity
 import app.fieldwatch.ui.component.SectionCard
@@ -39,6 +42,7 @@ fun HistoryScreen(app: FieldwatchApp) {
     val status by app.analysis.status.collectAsState()
     val tracked by app.analysis.tracked.collectAsState()
     val alerts by app.analysis.alerts.collectAsState()
+    val baselines by app.analysis.baselines.collectAsState()
     var detail by remember { mutableStateOf<DeviceEntity?>(null) }
 
     Column(
@@ -94,17 +98,48 @@ fun HistoryScreen(app: FieldwatchApp) {
             }
         }
         SectionCard(title = "Baseline") {
-            Text(
-                "Per-place learning progress lands here (M4).",
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                style = MaterialTheme.typography.bodySmall,
-            )
+            if (baselines.isEmpty()) {
+                Text(
+                    "Learning starts with the first fix. Each place and hour needs ${BaselineEngine.ARM_VISITS} visits before it can alarm.",
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            } else {
+                Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                    baselines.forEach { b -> BaselineRow(b) }
+                }
+            }
         }
     }
 
     detail?.let { d ->
         DeviceDetailDialog(app, d) { detail = null }
     }
+}
+
+@Composable
+private fun BaselineRow(b: BaselineEntity) {
+    val armed = b.visits >= BaselineEngine.ARM_VISITS
+    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+        Text(
+            "${b.geohash.ifBlank { "no-fix" }} · ${"%02d".format(b.hourOfDay)}:00",
+            color = MaterialTheme.colorScheme.onSurface,
+            style = MaterialTheme.typography.bodyMedium,
+            fontFamily = FontFamily.Monospace,
+        )
+        Text(
+            if (armed) "armed" else "learning ${b.visits}/${BaselineEngine.ARM_VISITS}",
+            color = if (armed) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant,
+            style = MaterialTheme.typography.labelSmall,
+        )
+    }
+    Text(
+        "~${b.usualCount()} radios usual · " +
+            "${BaselineEngine.splitCsv(b.deviceKeys).size} known · " +
+            "${BaselineEngine.splitCsv(b.ouis).size} vendors",
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        style = MaterialTheme.typography.bodySmall,
+    )
 }
 
 @Composable
