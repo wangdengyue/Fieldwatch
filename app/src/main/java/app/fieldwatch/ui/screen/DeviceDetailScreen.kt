@@ -92,6 +92,7 @@ fun DeviceDetailScreen(
     onBack: () -> Unit,
     onCreateFleet: () -> Unit,
     onHunt: () -> Unit,
+    onLocate: () -> Unit,
     demoMode: Boolean = false,
 ) {
     val fmt = SimpleDateFormat("HH:mm:ss", Locale.US)
@@ -632,6 +633,14 @@ fun DeviceDetailScreen(
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
+            }
+            FieldwatchActionButton(
+                onClick = onLocate,
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                Icon(Icons.Outlined.NearMe, null)
+                Spacer(Modifier.padding(4.dp))
+                Text("Locate")
             }
             familyHint?.let { hint ->
                 StickyHeight(device.key to "family") { FamilyCard(hint) }

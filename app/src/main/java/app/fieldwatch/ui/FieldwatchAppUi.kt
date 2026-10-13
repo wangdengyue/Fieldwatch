@@ -123,6 +123,7 @@ import app.fieldwatch.domain.disclaimerOk
 import app.fieldwatch.radio.RadioPermissions
 import app.fieldwatch.ui.screen.DeviceDetailScreen
 import app.fieldwatch.ui.screen.HuntScreen
+import app.fieldwatch.ui.screen.LocateScreen
 import app.fieldwatch.ui.screen.FiltersScreen
 import app.fieldwatch.ui.screen.FleetsScreen
 import app.fieldwatch.ui.screen.LivePane
@@ -777,9 +778,22 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
                             vm.startHunt(device)
                             nav.navigate("hunt")
                         },
+                        onLocate = {
+                            vm.startLocate(device)
+                            nav.navigate("locate")
+                        },
                         demoMode = state.settings.demoMode,
                     )
                 }
+            }
+            composable("locate") {
+                LocateScreen(
+                    vm = vm,
+                    onBack = {
+                        vm.stopLocate()
+                        nav.popBackStack()
+                    },
+                )
             }
             composable("hunt") {
                 HuntScreen(

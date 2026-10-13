@@ -661,6 +661,20 @@ class FieldwatchViewModel(application: Application) : AndroidViewModel(applicati
         huntStartedAt.value = 0L
     }
 
+    // ---- Locate (multilateration) ----
+    private val locateKey = MutableStateFlow<String?>(null)
+    val locateTarget = combine(locateKey, app.devices.devices) { key, list ->
+        list.firstOrNull { it.key == key }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), null)
+
+    fun startLocate(device: Sighting) {
+        locateKey.value = device.key
+    }
+
+    fun stopLocate() {
+        locateKey.value = null
+    }
+
     fun huntTick(beepOn: Boolean, vibrateOn: Boolean) {
         if (!beepOn && !vibrateOn) return
         app.alerter.huntTick(beepOn, vibrateOn)
