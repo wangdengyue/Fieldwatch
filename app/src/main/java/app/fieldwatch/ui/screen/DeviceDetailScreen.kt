@@ -65,6 +65,7 @@ import app.fieldwatch.domain.Rssi
 import app.fieldwatch.domain.ServiceDataRecord
 import app.fieldwatch.domain.Sighting
 import app.fieldwatch.domain.SignatureFamilyHint
+import app.fieldwatch.domain.TrackerClassifier
 import app.fieldwatch.domain.SignatureFieldDecoder
 import app.fieldwatch.domain.hexSpaced
 import app.fieldwatch.domain.label
@@ -674,6 +675,9 @@ fun DeviceDetailScreen(
             familyHint?.let { hint ->
                 StickyHeight(device.key to "family") { FamilyCard(hint) }
             }
+            TrackerClassifier.assess(device)?.let { assessment ->
+                StickyHeight(device.key to "tracker") { TrackerCard(assessment) }
+            }
             FieldwatchActionButton(
                 onClick = onCreateFleet,
                 modifier = Modifier.fillMaxWidth(),
@@ -703,6 +707,47 @@ fun DeviceDetailScreen(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+        }
+    }
+}
+
+@Composable
+private fun TrackerCard(assessment: TrackerClassifier.Assessment) {
+    val scheme = MaterialTheme.colorScheme
+    val separated = assessment.separation == TrackerClassifier.Separation.SEPARATED
+    val container = if (separated) {
+        Amber.nightIf(LocalNightMode.current).copy(alpha = 0.22f)
+    } else {
+        scheme.surfaceVariant.copy(alpha = 0.55f)
+    }
+    Surface(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(12.dp),
+        color = container,
+    ) {
+        Column(
+            Modifier.padding(horizontal = 12.dp, vertical = 10.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            Text(
+                "Tracker assessment",
+                style = MaterialTheme.typography.labelSmall,
+                color = scheme.onSurfaceVariant,
+            )
+            Text(assessment.familyLabel, style = MaterialTheme.typography.titleMedium)
+            Text(
+                if (separated) "Separated from owner" else "Separation unknown",
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
+                color = if (separated) Amber.nightIf(LocalNightMode.current) else scheme.onSurface,
+            )
+            Text(assessment.separationLabel, style = MaterialTheme.typography.bodySmall)
+            assessment.evidence.forEach { fact ->
+                Text(
+                    "· $fact",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = scheme.onSurfaceVariant,
+                )
+            }
         }
     }
 }
