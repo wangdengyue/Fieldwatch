@@ -11,6 +11,7 @@ import app.fieldwatch.alert.Alerter
 import app.fieldwatch.analysis.AnalysisEngine
 import app.fieldwatch.radio.CellMonitor
 import app.fieldwatch.radio.GnssMonitor
+import app.fieldwatch.radio.LanScanner
 import app.fieldwatch.data.ConfigStore
 import app.fieldwatch.data.DeviceStore
 import app.fieldwatch.data.GnssProfileStore
@@ -60,7 +61,7 @@ class FieldwatchApp : Application() {
         private set
     lateinit var analysis: AnalysisEngine
     lateinit var cells: CellMonitor
-        private set
+    val lanScanner: LanScanner by lazy { LanScanner(this) { config.fleets } }
 
     /** Bluetooth bursts, Wi-Fi bursts, or both in time order. */
     fun floodBursts(): List<FloodBurst> {

@@ -93,6 +93,7 @@ fun DeviceDetailScreen(
     onCreateFleet: () -> Unit,
     onHunt: () -> Unit,
     onLocate: () -> Unit,
+    onScanLan: (() -> Unit)? = null,
     demoMode: Boolean = false,
 ) {
     val fmt = SimpleDateFormat("HH:mm:ss", Locale.US)
@@ -641,6 +642,16 @@ fun DeviceDetailScreen(
                 Icon(Icons.Outlined.NearMe, null)
                 Spacer(Modifier.padding(4.dp))
                 Text("Locate")
+            }
+            onScanLan?.let { scan ->
+                FieldwatchActionButton(
+                    onClick = scan,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(Icons.Outlined.NearMe, null)
+                    Spacer(Modifier.padding(4.dp))
+                    Text("Scan this network")
+                }
             }
             familyHint?.let { hint ->
                 StickyHeight(device.key to "family") { FamilyCard(hint) }

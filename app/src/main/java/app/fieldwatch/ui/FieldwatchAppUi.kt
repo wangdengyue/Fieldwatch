@@ -124,6 +124,7 @@ import app.fieldwatch.radio.RadioPermissions
 import app.fieldwatch.ui.screen.DeviceDetailScreen
 import app.fieldwatch.ui.screen.CellsScreen
 import app.fieldwatch.ui.screen.HuntScreen
+import app.fieldwatch.ui.screen.LanScanScreen
 import app.fieldwatch.ui.screen.LocateScreen
 import app.fieldwatch.ui.screen.FiltersScreen
 import app.fieldwatch.ui.screen.FleetsScreen
@@ -737,6 +738,9 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
             composable("scan-status") {
                 ScanStatusScreen(state = state, onBack = { nav.popBackStack() }, onCells = { nav.navigate("cells") })
             }
+            composable("lanscan") {
+                LanScanScreen(vm = vm, onBack = { nav.popBackStack() })
+            }
             composable("cells") {
                 CellsScreen(app = vm.fieldwatchApp, onBack = { nav.popBackStack() })
             }
@@ -786,6 +790,14 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
                         onLocate = {
                             vm.startLocate(device)
                             nav.navigate("locate")
+                        },
+                        onScanLan = if (
+                            device.kind == app.fieldwatch.domain.RadioKind.WIFI &&
+                            vm.fieldwatchApp.lanScanner.connectedBssid()?.equals(device.mac, ignoreCase = true) == true
+                        ) {
+                            { nav.navigate("lanscan") }
+                        } else {
+                            null
                         },
                         demoMode = state.settings.demoMode,
                     )
