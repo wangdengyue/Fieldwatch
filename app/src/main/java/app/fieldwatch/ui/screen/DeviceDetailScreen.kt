@@ -672,6 +672,28 @@ fun DeviceDetailScreen(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
+            if (device.kind == RadioKind.BLE) {
+                val probeBusy by vm.probeBusyKey.collectAsStateWithLifecycle()
+                val probeReports by vm.probeReports.collectAsStateWithLifecycle()
+                val probing = probeBusy == device.key
+                FieldwatchActionButton(
+                    onClick = { vm.probeDevice(device) },
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = !probing && probeBusy == null && !device.gone,
+                ) {
+                    Icon(Icons.Outlined.BluetoothSearching, null)
+                    Spacer(Modifier.padding(4.dp))
+                    Text(if (probing) "Probing…" else "Probe services (GATT)")
+                }
+                Text(
+                    "Connects to the device over BLE for a few seconds and reads its public GATT profile — service tree, model and firmware, battery, live data. The device can see this phone while connected.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                probeReports[device.key]?.let { report ->
+                    ProbeReportCard(report, onDismiss = { vm.clearProbeReport(device.key) })
+                }
+            }
             familyHint?.let { hint ->
                 StickyHeight(device.key to "family") { FamilyCard(hint) }
             }
