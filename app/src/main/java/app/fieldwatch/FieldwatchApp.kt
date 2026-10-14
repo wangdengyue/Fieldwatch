@@ -62,6 +62,7 @@ class FieldwatchApp : Application() {
     lateinit var analysis: AnalysisEngine
     lateinit var cells: CellMonitor
     val lanScanner: LanScanner by lazy { LanScanner(this) { config.fleets } }
+    val trackerTone: app.fieldwatch.radio.TrackerTone by lazy { app.fieldwatch.radio.TrackerTone(this) }
 
     /** Bluetooth bursts, Wi-Fi bursts, or both in time order. */
     fun floodBursts(): List<FloodBurst> {

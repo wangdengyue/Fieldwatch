@@ -94,6 +94,7 @@ fun DeviceDetailScreen(
     onHunt: () -> Unit,
     onLocate: () -> Unit,
     onScanLan: (() -> Unit)? = null,
+    onPlaySound: (() -> Unit)? = null,
     demoMode: Boolean = false,
 ) {
     val fmt = SimpleDateFormat("HH:mm:ss", Locale.US)
@@ -652,6 +653,21 @@ fun DeviceDetailScreen(
                     Spacer(Modifier.padding(4.dp))
                     Text("Scan this network")
                 }
+            }
+            onPlaySound?.let { play ->
+                FieldwatchActionButton(
+                    onClick = play,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Icon(Icons.Outlined.NearMe, null)
+                    Spacer(Modifier.padding(4.dp))
+                    Text("Play sound on tracker")
+                }
+                Text(
+                    "Connects to the tracker over BLE and asks it to beep. The device can see this phone while it rings.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
             }
             familyHint?.let { hint ->
                 StickyHeight(device.key to "family") { FamilyCard(hint) }

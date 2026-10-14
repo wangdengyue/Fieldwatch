@@ -799,6 +799,11 @@ private fun FieldwatchShell(state: FieldwatchUi, vm: FieldwatchViewModel) {
                         } else {
                             null
                         },
+                        onPlaySound = if (app.fieldwatch.radio.TrackerTone.supports(device)) {
+                            { vm.playTrackerSound(device) }
+                        } else {
+                            null
+                        },
                         demoMode = state.settings.demoMode,
                     )
                 }

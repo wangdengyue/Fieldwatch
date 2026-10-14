@@ -712,6 +712,26 @@ class FieldwatchViewModel(application: Application) : AndroidViewModel(applicati
         _locateSamples.value = emptyList()
     }
 
+    /** Ring a tracker (AirTag / Find My / DULT). Active BLE connect — see TrackerTone. */
+    fun playTrackerSound(device: Sighting) {
+        app.scope.launch {
+            _export.value = ExportUi(
+                active = true, spinner = true, message = "Asking the tracker to play its sound…",
+            )
+            when (val r = app.trackerTone.play(device)) {
+                is app.fieldwatch.radio.TrackerTone.Result.Playing -> _export.value = ExportUi(
+                    noticeTitle = "Playing",
+                    noticeMessage = "The tracker should be beeping now. It stops on its own. " +
+                        "Note: this opened a BLE connection — the device could see this phone's address.",
+                )
+                is app.fieldwatch.radio.TrackerTone.Result.Failed -> _export.value = ExportUi(
+                    errorTitle = "Could not ring it",
+                    error = r.why,
+                )
+            }
+        }
+    }
+
     fun huntTick(beepOn: Boolean, vibrateOn: Boolean) {
         if (!beepOn && !vibrateOn) return
         app.alerter.huntTick(beepOn, vibrateOn)
