@@ -21,6 +21,7 @@ import app.fieldwatch.ui.component.DecodeGlyph
 import androidx.compose.material.icons.outlined.Edit
 import androidx.compose.material.icons.outlined.GroupAdd
 import androidx.compose.material.icons.outlined.AutoAwesome
+import androidx.compose.material.icons.outlined.BluetoothSearching
 import androidx.compose.material.icons.outlined.NearMe
 import androidx.compose.material.icons.outlined.Share
 import androidx.compose.material.icons.outlined.WarningAmber
@@ -68,6 +69,7 @@ import app.fieldwatch.domain.SignatureFieldDecoder
 import app.fieldwatch.domain.hexSpaced
 import app.fieldwatch.domain.label
 import app.fieldwatch.radio.BleAdParser
+import app.fieldwatch.radio.BleProbe
 import app.fieldwatch.ui.RadioKindMark
 import app.fieldwatch.ui.FieldwatchViewModel
 import app.fieldwatch.ui.theme.Amber
@@ -913,6 +915,68 @@ private fun GuessCard(guess: DeviceExplain.Guess) {
             Text(guess.headline, style = MaterialTheme.typography.titleMedium)
             Text(guess.because, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
         }
+    }
+}
+
+@Composable
+private fun ProbeReportCard(report: BleProbe.Report, onDismiss: () -> Unit) {
+    val fmt = remember { SimpleDateFormat("HH:mm:ss", Locale.US) }
+    Section("GATT probe")
+    Meta(
+        "Result",
+        report.failure ?: "Connected — ${report.services.size} services in ${report.elapsedMs / 1000.0}s",
+    )
+    report.batteryPercent?.let { Meta("Battery", "$it%") }
+    if (report.services.isNotEmpty()) {
+        val tree = buildString {
+            for (service in report.services) {
+                append(service.uuid)
+                service.name?.let { append("  ").append(it) }
+                append('\n')
+                for (c in service.chars) {
+                    append("  ").append(c.uuid)
+                    c.name?.let { append(" ").append(it) }
+                    if (c.properties.isNotEmpty()) append("  [").append(c.properties.joinToString(",")).append("]")
+                    val value = c.valueText?.let { "\"$it\"" } ?: c.valueHex
+                    when {
+                        value != null -> append("  = ").append(value)
+                        c.readError != null -> append("  (").append(c.readError).append(")")
+                    }
+                    append('\n')
+                }
+            }
+        }.trimEnd()
+        Meta("Service tree", tree, mono = true)
+    }
+    if (report.notifications.isNotEmpty()) {
+        val lines = report.notifications.take(12).joinToString("\n") { n ->
+            "${fmt.format(Date(n.at))}  ${n.uuid}  ${n.hex}"
+        }
+        val more = report.notifications.size - 12
+        Meta(
+            "Live data (listen window)",
+            lines + if (more > 0) "\n… +$more more" else "",
+            mono = true,
+        )
+    } else if (report.failure == null) {
+        Text(
+            "No notifiable characteristics, or the device stayed quiet during the listen window.",
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+    Text(
+        "Connection refusal is information too: it usually means the device is in use by its owner, bonded elsewhere, or out of range.",
+        style = MaterialTheme.typography.bodySmall,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+    )
+    FieldwatchActionButton(
+        onClick = onDismiss,
+        modifier = Modifier.fillMaxWidth(),
+    ) {
+        Icon(Icons.Outlined.Check, null)
+        Spacer(Modifier.padding(4.dp))
+        Text("Dismiss probe result")
     }
 }
 

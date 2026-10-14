@@ -732,6 +732,33 @@ class FieldwatchViewModel(application: Application) : AndroidViewModel(applicati
         }
     }
 
+    private val _probeBusyKey = MutableStateFlow<String?>(null)
+    val probeBusyKey: StateFlow<String?> = _probeBusyKey
+    private val _probeReports = MutableStateFlow<Map<String, app.fieldwatch.radio.BleProbe.Report>>(emptyMap())
+    val probeReports: StateFlow<Map<String, app.fieldwatch.radio.BleProbe.Report>> = _probeReports
+
+    /**
+     * Active GATT probe of one device: service tree, Device Information, battery,
+     * and a short notification listen window. The device can see this phone while
+     * connected. One probe at a time; results stay until replaced or dismissed.
+     */
+    fun probeDevice(device: Sighting) {
+        if (_probeBusyKey.value != null) return
+        _probeBusyKey.value = device.key
+        app.scope.launch {
+            try {
+                val report = app.bleProbe.probe(device.mac)
+                _probeReports.value = _probeReports.value + (device.key to report)
+            } finally {
+                _probeBusyKey.value = null
+            }
+        }
+    }
+
+    fun clearProbeReport(deviceKey: String) {
+        _probeReports.value = _probeReports.value - deviceKey
+    }
+
     fun huntTick(beepOn: Boolean, vibrateOn: Boolean) {
         if (!beepOn && !vibrateOn) return
         app.alerter.huntTick(beepOn, vibrateOn)
